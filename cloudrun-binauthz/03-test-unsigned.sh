@@ -12,7 +12,7 @@ echo ""
 
 # Load configuration
 if [ ! -f config.env ]; then
-  echo "Error: config.env not found. Please run ./setup.sh first."
+  echo "Error: config.env not found. Please run ./01-setup.sh first."
   exit 1
 fi
 
@@ -57,6 +57,14 @@ echo ""
 echo "4. Attempting to deploy unsigned image to Cloud Run..."
 echo "   Binary Authorization should BLOCK this deployment..."
 echo ""
+echo "Running command:"
+echo "  gcloud run deploy ${SERVICE_NAME} \\"
+echo "    --image=\"${UNSIGNED_IMAGE_WITH_DIGEST}\" \\"
+echo "    --platform=managed \\"
+echo "    --region=${REGION} \\"
+echo "    --allow-unauthenticated \\"
+echo "    --binary-authorization=default"
+echo ""
 
 set +e  # Don't exit on error for this command
 
@@ -65,8 +73,7 @@ gcloud run deploy ${SERVICE_NAME} \
   --platform=managed \
   --region=${REGION} \
   --allow-unauthenticated \
-  --binary-authorization=default \
-  --quiet
+  --binary-authorization=default
 
 DEPLOY_EXIT_CODE=$?
 
@@ -98,7 +105,7 @@ else
   echo "  • Your Cloud Run services are protected from unauthorized deployments"
   echo ""
   echo "To deploy this image, you would need to:"
-  echo "  1. Create an attestation using sign-and-deploy.sh"
+  echo "  1. Create an attestation using 02-sign-and-deploy.sh"
   echo "  2. Or add it to the policy's allowlist"
   echo ""
 fi
