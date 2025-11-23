@@ -81,6 +81,10 @@ gcloud services enable \
 
 echo "✓ APIs enabled"
 echo ""
+echo "   Waiting 30 seconds for Eventarc service agent to be provisioned..."
+sleep 30
+echo "   ✓ Service agent provisioning time elapsed"
+echo ""
 
 # Create Cloud Storage bucket
 echo "2. Creating Cloud Storage bucket..."
