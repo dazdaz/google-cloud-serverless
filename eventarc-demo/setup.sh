@@ -163,6 +163,9 @@ export SERVICE_NAME="${SERVICE_NAME}"
 export TRIGGER_NAME="${TRIGGER_NAME}"
 EOF
 
+# Disable trap on successful completion
+trap - EXIT INT TERM
+
 echo "=================================="
 echo "Setup Complete!"
 echo "=================================="

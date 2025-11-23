@@ -136,6 +136,9 @@ export FUNCTION_NAME="${FUNCTION_NAME}"
 export FUNCTION_URL="${FUNCTION_URL}"
 EOF
 
+# Disable trap on successful completion
+trap - EXIT INT TERM
+
 echo "=================================="
 echo "Setup Complete!"
 echo "=================================="

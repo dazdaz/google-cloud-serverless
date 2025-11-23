@@ -125,6 +125,9 @@ export FUNCTION_URL="${FUNCTION_URL}"
 export QUEUE_NAME="${QUEUE_NAME}"
 EOF
 
+# Disable trap on successful completion
+trap - EXIT INT TERM
+
 echo "=================================="
 echo "Setup Complete!"
 echo "=================================="

@@ -151,6 +151,9 @@ CREATED_JOB="${JOB_NAME}"
 echo "✓ Cloud Scheduler job created"
 echo ""
 
+# Disable trap on successful completion
+trap - EXIT INT TERM
+
 echo "=================================="
 echo "Setup Complete!"
 echo "=================================="
