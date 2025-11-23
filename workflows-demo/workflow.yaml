@@ -28,7 +28,7 @@ main:
     - log_validation:
         call: sys.log
         args:
-          text: ${'Validation result: ' + string(validation_result.body.valid)}
+          text: ${validation_result.body}
           severity: INFO
     
     # Step 2: Check if validation passed
@@ -58,7 +58,7 @@ main:
     - log_inventory:
         call: sys.log
         args:
-          text: ${'Inventory check: ' + string(inventory_result.body.available)}
+          text: ${inventory_result.body}
           severity: INFO
     
     # Step 4: Check if items are available
@@ -118,7 +118,7 @@ main:
     - log_parallel_results:
         call: sys.log
         args:
-          text: ${'Shipping: ' + string(parallel_results[0]) + ', Tax: ' + string(parallel_results[1])}
+          text: ${parallel_results}
           severity: INFO
     
     - assign_parallel_results:
@@ -143,7 +143,7 @@ main:
             - log_payment_success:
                 call: sys.log
                 args:
-                  text: ${'Payment processed: ' + payment_result.body.transaction_id}
+                  text: ${payment_result.body}
                   severity: INFO
         retry:
           predicate: ${http.default_retry_predicate}
@@ -158,7 +158,7 @@ main:
             - log_payment_error:
                 call: sys.log
                 args:
-                  text: ${'Payment failed: ' + e.message}
+                  text: ${e}
                   severity: ERROR
             - return_payment_error:
                 return:
@@ -189,7 +189,7 @@ main:
     - log_confirmation:
         call: sys.log
         args:
-          text: ${'Confirmation sent to customer ' + order.customer_id}
+          text: ${notification_result.body}
           severity: INFO
     
     # Step 8: Return Success
