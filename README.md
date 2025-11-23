@@ -874,6 +874,159 @@ All services support quota increase requests:
 
 ---
 
+## 📝 Code Samples
+
+Google Cloud provides an extensive collection of **150+ Workflows code samples** covering various use cases and integrations.
+
+### Official Samples Collection
+
+🔗 **[Complete Workflows Samples Library](https://cloud.google.com/workflows/docs/samples)**
+
+### Sample Categories
+
+<details>
+<summary><b>Getting Started Samples</b></summary>
+
+- [Deploy your first workflow](https://cloud.google.com/workflows/docs/samples/workflows-myfirstworkflow) - Basic workflow calling Wikipedia API
+- [Input a search term and pass it to an API](https://cloud.google.com/workflows/docs/samples/workflows-quickstart) - Quickstart with runtime parameters
+- [Use arguments in a workflow](https://cloud.google.com/workflows/docs/samples/workflows-args) - Working with workflow parameters
+- [Assign variables](https://cloud.google.com/workflows/docs/samples/workflows-vars) - Variable assignment basics
+
+</details>
+
+<details>
+<summary><b>HTTP & API Integration</b></summary>
+
+- [Make an external HTTP GET request](https://cloud.google.com/workflows/docs/samples/workflows-http-get) - GET with custom headers
+- [Make an external HTTP POST request](https://cloud.google.com/workflows/docs/samples/workflows-http-post) - POST to external endpoints
+- [Invoke Cloud Run workload](https://cloud.google.com/workflows/docs/samples/workflows-connect-run) - OIDC authentication
+- [Connect to Cloud Functions](https://cloud.google.com/workflows/docs/samples/workflows-connect-functions) - OIDC for Cloud Functions
+- [Translate text using Cloud Translation API](https://cloud.google.com/workflows/docs/samples/workflows-connect-translate) - API connector example
+
+</details>
+
+<details>
+<summary><b>Parallel Execution</b></summary>
+
+- [Perform operations in parallel using branches](https://cloud.google.com/workflows/docs/samples/workflows-parallel-operations) - Concurrent execution
+- [Parallel for:in loop](https://cloud.google.com/workflows/docs/samples/workflows-parallel-for-in) - Parallel iteration
+- [Parallel for:range loop](https://cloud.google.com/workflows/docs/samples/workflows-parallel-for-range) - Range-based parallel loops
+- [Run multiple BigQuery queries in parallel](https://cloud.google.com/workflows/docs/samples/workflows-parallel-bigquery) - Performance optimization
+- [Aggregate data using parallel loop](https://cloud.google.com/workflows/docs/samples/workflows-parallel-aggregate) - Shared variables
+
+</details>
+
+<details>
+<summary><b>Error Handling & Retries</b></summary>
+
+- [Catch errors](https://cloud.google.com/workflows/docs/samples/workflows-error-catch) - Custom exception handling
+- [Retry with default policy](https://cloud.google.com/workflows/docs/samples/workflows-error-retry) - Built-in retry
+- [Custom retry configuration](https://cloud.google.com/workflows/docs/samples/workflows-error-retry-custom) - Backoff parameters
+- [Retry after HTTP 500 error](https://cloud.google.com/workflows/docs/samples/workflows-error-retry-http-status) - Status code retries
+- [Error handling in parallel steps](https://cloud.google.com/workflows/docs/samples/workflows-parallel-error-handling) - try/except in parallel
+
+</details>
+
+<details>
+<summary><b>Loops & Iteration</b></summary>
+
+- [Basic for-range loop](https://cloud.google.com/workflows/docs/samples/workflows-iterate-for-range) - Range iteration
+- [For-in loop through list](https://cloud.google.com/workflows/docs/samples/workflows-iterate-list) - List iteration
+- [For-in loop through map](https://cloud.google.com/workflows/docs/samples/workflows-iterate-map) - Dictionary iteration
+- [HTTP requests in for-range loop](https://cloud.google.com/workflows/docs/samples/workflows-iterate-for-range-http) - API calls in loop
+- [Google Translate in for-in loop](https://cloud.google.com/workflows/docs/samples/workflows-iterate-googleapis-translate) - Connector usage
+
+</details>
+
+<details>
+<summary><b>GCP Service Connectors</b></summary>
+
+**Data & Analytics:**
+- [BigQuery connector](https://cloud.google.com/workflows/docs/samples/workflows-connector-bigquery) - Query and analyze data
+- [Cloud Storage connector](https://cloud.google.com/workflows/docs/samples/workflows-connector-storage) - Object storage
+- [Firestore connector](https://cloud.google.com/workflows/docs/samples/workflows-connector-firestore) - NoSQL database
+- [Cloud Spanner connector](https://cloud.google.com/workflows/docs/samples/workflows-connector-spanner) - Relational database
+
+**Compute & Orchestration:**
+- [Compute Engine connector](https://cloud.google.com/workflows/docs/samples/workflows-connector-compute) - VM management
+- [Cloud Run connector](https://cloud.google.com/workflows/docs/samples/workflows-connector-run) - Serverless containers
+- [Cloud Functions connector](https://cloud.google.com/workflows/docs/samples/workflows-connector-cloudfunctions) - Serverless functions
+- [Cloud Tasks connector](https://cloud.google.com/workflows/docs/samples/workflows-connector-cloudtasks) - Task queuing
+- [Cloud Scheduler connector](https://cloud.google.com/workflows/docs/samples/workflows-connector-cloudscheduler) - Cron jobs
+
+**AI & ML:**
+- [Vertex AI connector](https://cloud.google.com/workflows/docs/samples/workflows-connector-aiplatform) - ML platform
+- [Cloud Translation connector](https://cloud.google.com/workflows/docs/samples/workflows-connector-translate) - Translation API
+- [Document AI connector](https://cloud.google.com/workflows/docs/samples/workflows-connector-documentai) - Document processing
+- [Cloud Natural Language connector](https://cloud.google.com/workflows/docs/samples/workflows-connector-language) - NLP
+
+**Other Services:**
+- [Pub/Sub connector](https://cloud.google.com/workflows/docs/samples/workflows-connector-pubsub) - Messaging
+- [Secret Manager connector](https://cloud.google.com/workflows/docs/samples/workflows-connector-secretmanager) - Secrets management
+- [Cloud Build connector](https://cloud.google.com/workflows/docs/samples/workflows-connector-cloudbuild) - CI/CD
+
+</details>
+
+<details>
+<summary><b>Advanced Patterns</b></summary>
+
+- [Subworkflows](https://cloud.google.com/workflows/docs/samples/workflows-subworkflow) - Modular workflow design
+- [Execute other workflows in parallel](https://cloud.google.com/workflows/docs/samples/workflows-child-workflow) - Workflow orchestration
+- [Callback endpoints](https://cloud.google.com/workflows/docs/samples/workflows-callback-listener) - Wait for external events
+- [Deploy Kubernetes applications](https://cloud.google.com/workflows/docs/samples/workflows-connect-kubernetes-service) - GKE + K8s connectors
+- [BigQuery data loading](https://cloud.google.com/workflows/docs/samples/workflows-bigquery-load) - ETL orchestration
+- [Batch translation](https://cloud.google.com/workflows/docs/samples/workflows-batch-translation) - Large-scale processing
+
+</details>
+
+<details>
+<summary><b>Infrastructure as Code</b></summary>
+
+- [Create and deploy with Terraform](https://cloud.google.com/workflows/docs/samples/workflows-terraform-workflow-deploy) - Terraform deployment
+- [Execute Cloud Run job with Terraform](https://cloud.google.com/workflows/docs/samples/workflows-terraform-create-workflow) - Complete IaC example
+- [Deploy from Git using Cloud Build](https://cloud.google.com/workflows/docs/samples/workflows-build-config) - CI/CD integration
+
+</details>
+
+<details>
+<summary><b>Client Libraries & API</b></summary>
+
+- [Get started with Cloud Client Libraries](https://cloud.google.com/workflows/docs/samples/workflows-client-library) - Python, Node.js, C++
+- [Create execution](https://cloud.google.com/workflows/docs/samples/workflows-create-execution) - Execute workflows programmatically
+- [Client library quickstart](https://cloud.google.com/workflows/docs/samples/workflows-api-quickstart) - Polling execution status
+- [Create workflow (Python/Ruby)](https://cloud.google.com/workflows/docs/samples/workflows-v1-generated-Workflows-CreateWorkflow-sync)
+- [List workflows (Python/Ruby)](https://cloud.google.com/workflows/docs/samples/workflows-v1-generated-Workflows-ListWorkflows-sync)
+
+</details>
+
+### Sample Use Cases
+
+**Data Processing Pipeline:**
+```yaml
+# Query BigQuery → Transform → Load to Sheets
+# https://cloud.google.com/workflows/docs/samples/workflows-sheets-bigquery
+```
+
+**Event-Driven Automation:**
+```yaml
+# Storage upload → Process file → Execute Cloud Run job
+# https://cloud.google.com/workflows/docs/samples/workflows-cloud-run-jobs-payload
+```
+
+**Multi-Service Orchestration:**
+```yaml
+# Validate → Inventory → Payment → Shipping → Notify
+# (See workflows-demo in this repository)
+```
+
+**Translation Validation:**
+```yaml
+# Request → Callback → Human approval → Process
+# https://cloud.google.com/workflows/docs/samples/workflows-translation-validation
+```
+
+---
+
 ## 🔗 Resources
 
 ### Official Documentation
