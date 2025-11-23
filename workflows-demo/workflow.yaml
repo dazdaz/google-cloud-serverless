@@ -72,7 +72,7 @@ main:
     # Step 5: Parallel execution - call shipping and tax APIs simultaneously
     - parallel_processing:
         parallel:
-          shared: [order]
+          shared: [order, shipping_estimate, tax_calculation]
           branches:
             - branch1:
                 steps:
@@ -85,8 +85,9 @@ main:
                           items: ${order.items}
                         timeout: 30
                       result: shipping_result
-                  - return_shipping:
-                      return: ${shipping_result.body}
+                  - assign_shipping:
+                      assign:
+                        - shipping_estimate: ${shipping_result.body}
             
             - branch2:
                 steps:
@@ -99,13 +100,9 @@ main:
                           state: ${order.shipping_address.state}
                         timeout: 30
                       result: tax_result
-                  - return_tax:
-                      return: ${tax_result.body}
-    
-    - assign_parallel_results:
-        assign:
-          - shipping_estimate: ${parallel_processing[0]}
-          - tax_calculation: ${parallel_processing[1]}
+                  - assign_tax:
+                      assign:
+                        - tax_calculation: ${tax_result.body}
     
     - log_parallel_results:
         call: sys.log
