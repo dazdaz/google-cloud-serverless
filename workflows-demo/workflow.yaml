@@ -109,7 +109,9 @@ main:
     - log_parallel_results:
         call: sys.log
         args:
-          text: ${parallel_processing}
+          text:
+            shipping: ${shipping_estimate}
+            tax: ${tax_calculation}
           severity: INFO
     
     # Step 6: Process Payment (with error handling)
