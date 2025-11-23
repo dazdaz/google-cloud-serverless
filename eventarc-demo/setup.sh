@@ -64,8 +64,36 @@ SERVICE_URL=$(gcloud run services describe ${SERVICE_NAME} \
 echo "Service URL: $SERVICE_URL"
 echo ""
 
-# Grant necessary permissions to Eventarc service account
-echo "4. Setting up IAM permissions..."
+# Create Eventarc trigger for Cloud Storage events
+# This will automatically create the Eventarc service account and set up permissions
+echo "4. Creating Eventarc trigger..."
+echo "   (This may take a few minutes...)"
+echo "   Note: This will automatically create the Eventarc service account and configure permissions"
+echo ""
+
+# First, grant the default Compute Engine service account permission to invoke the service
+# This is needed for Eventarc to work properly
+COMPUTE_SA="${PROJECT_NUMBER}-compute@developer.gserviceaccount.com"
+gcloud run services add-iam-policy-binding ${SERVICE_NAME} \
+  --member="serviceAccount:${COMPUTE_SA}" \
+  --role="roles/run.invoker" \
+  --region=${REGION} \
+  --quiet 2>/dev/null || echo "Note: Compute service account permission already exists or not needed"
+
+# Create the trigger - this will create the Eventarc service account automatically
+gcloud eventarc triggers create ${TRIGGER_NAME} \
+  --location=${REGION} \
+  --destination-run-service=${SERVICE_NAME} \
+  --destination-run-region=${REGION} \
+  --event-filters="type=google.cloud.storage.object.v1.finalized" \
+  --event-filters="bucket=${BUCKET_NAME}" \
+  --service-account="${PROJECT_NUMBER}-compute@developer.gserviceaccount.com"
+
+echo "✓ Eventarc trigger created"
+echo ""
+
+# Now grant permissions to the Eventarc service account (created by the trigger)
+echo "5. Configuring IAM permissions..."
 EVENTARC_SA="service-${PROJECT_NUMBER}@gcp-sa-eventarc.iam.gserviceaccount.com"
 
 # Grant eventarc.eventReceiver role to invoke Cloud Run
@@ -73,29 +101,9 @@ gcloud run services add-iam-policy-binding ${SERVICE_NAME} \
   --member="serviceAccount:${EVENTARC_SA}" \
   --role="roles/run.invoker" \
   --region=${REGION} \
-  --quiet
-
-# Grant pubsub.publisher role for Storage events
-gcloud projects add-iam-policy-binding ${PROJECT_ID} \
-  --member="serviceAccount:${EVENTARC_SA}" \
-  --role="roles/eventarc.eventReceiver" \
-  --quiet
+  --quiet 2>/dev/null || echo "Note: Eventarc service account already has invoker permission"
 
 echo "✓ IAM permissions configured"
-echo ""
-
-# Create Eventarc trigger for Cloud Storage events
-echo "5. Creating Eventarc trigger..."
-echo "   (This may take a few minutes...)"
-gcloud eventarc triggers create ${TRIGGER_NAME} \
-  --location=${REGION} \
-  --destination-run-service=${SERVICE_NAME} \
-  --destination-run-region=${REGION} \
-  --event-filters="type=google.cloud.storage.object.v1.finalized" \
-  --event-filters="bucket=${BUCKET_NAME}" \
-  --service-account="${EVENTARC_SA}"
-
-echo "✓ Eventarc trigger created"
 echo ""
 
 # Store configuration for other scripts
