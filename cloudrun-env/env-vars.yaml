@@ -1,0 +1,7 @@
+APP_ENV: "production"
+DB_HOST: "db.example.com"
+DB_PORT: "5432"
+API_KEY: "secret-api-key-from-yaml"
+FEATURE_FLAG_X: "true"
+MAINTENANCE_MODE: "false"
+DEPLOYMENT_METHOD: "yaml-file"
