@@ -70,3 +70,10 @@ To remove the deployed services:
 
 ```bash
 ./99-cleanup.sh
+```
+
+## Further Reading
+
+- [Cloud Run Services: Set environment variables](https://cloud.google.com/run/docs/configuring/services/environment-variables)
+- [Cloud Run Jobs: Set environment variables](https://cloud.google.com/run/docs/configuring/jobs/environment-variables)
+- [Cloud Build Worker Pools: Set environment variables](https://cloud.google.com/run/docs/configuring/workerpools/environment-variables)
