@@ -97,7 +97,7 @@ cloudrun-static-ip/
 
 ## Most Likely Root Cause
 
-Based on the symptoms described (DNS works, public requests timeout, no NAT logs):
+Based on common symptoms (DNS works, public requests timeout, no NAT logs):
 
 **Primary Suspect: VPC egress set to `private-ranges-only`**
 
