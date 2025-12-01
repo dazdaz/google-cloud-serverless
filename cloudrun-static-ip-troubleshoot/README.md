@@ -173,6 +173,23 @@ Key questions to ask (see [TROUBLESHOOTING_QUESTIONS.md](docs/TROUBLESHOOTING_QU
 4. Are there any egress deny firewall rules?
 5. What happens when you test with `curl https://httpbin.org/ip`?
 
+## Static IP Reuse
+
+The demo scripts support reusing the same static IP address across multiple runs:
+
+- **`05-create-nat.sh`** checks if the static IP already exists before creating it. If found, it reuses the existing IP instead of creating a new one.
+- **`99-cleanup.sh`** prompts you to confirm whether to release the static IP address. You can choose to keep it for reuse in future deployments.
+
+This is useful when:
+- Clients have already whitelisted your static IP
+- You want to redeploy the demo without changing the IP
+- You're iterating on configuration while maintaining the same IP for testing
+
+**To reuse the same IP:**
+1. Run `99-cleanup.sh` and choose **"n"** when asked about releasing the static IP
+2. Re-run the setup scripts (`02-enable-apis.sh` through `07-deploy-ip-checker.sh`)
+3. The existing static IP will be automatically detected and reused
+
 ## Cleanup
 
 When done, clean up all resources:
@@ -180,6 +197,8 @@ When done, clean up all resources:
 cd scripts
 ./99-cleanup.sh
 ```
+
+**Note:** During cleanup, you'll be asked whether to release the static IP. Choose "y" to fully clean up, or "n" to preserve the IP for future use.
 
 ## Additional Resources
 
