@@ -28,12 +28,12 @@ Both demos use **GCP Service Extensions** to run Wasm plugins inside the Load Ba
 │  │                  Service Extensions (Wasm Sandbox)                 │  │
 │  │                                                                    │  │
 │  │   REQUEST PATH:   Demo 2 - Smart Router                           │  │
-│  │                   • Inspect headers/cookies                        │  │
-│  │                   • Route to v1 or v2 backend                      │  │
+│  │                   • Inspect headers/cookies          │  │
+│  │                   • Route to v1 or v2 backend        │  │
 │  │                                                                    │  │
 │  │   RESPONSE PATH:  Demo 1 - PII Scrubbing                          │  │
-│  │                   • Scan response body                             │  │
-│  │                   • Redact credit cards, SSN, emails               │  │
+│  │                   • Scan response body               │  │
+│  │                   • Redact credit cards, SSN, emails │  │
 │  └────────────────────────────────────────────────────────────────────┘  │
 │                                     │                                    │
 └─────────────────────────────────────┼────────────────────────────────────┘
@@ -148,8 +148,7 @@ cloudrun-wasm/
 │   │   └── envoy-demo2.yaml        # Demo 2 (request filter)
 │   │
 │   ├── docker/                     # Docker files
-│   │   ├── Dockerfile.envoy        # Envoy with Wasm
-│   │   └── docker-compose.yaml     # Local dev environment
+│   │   └── Dockerfile.envoy        # Envoy with Wasm
 │   │
 │   ├── backend/                    # Cloud Run backend
 │   │   ├── app.py                  # Flask API server

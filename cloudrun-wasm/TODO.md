@@ -130,8 +130,7 @@ Both demos use **GCP Service Extensions** (Wasm in Load Balancer) + **Cloud Run*
 | b26 | [x] | Create base Envoy configuration | `infrastructure/envoy/envoy.yaml` |
 | b27 | [x] | Create Envoy config for Demo 1 | `infrastructure/envoy/envoy-demo1.yaml` |
 | b28 | [x] | Create Envoy config for Demo 2 | `infrastructure/envoy/envoy-demo2.yaml` |
-| b29 | [x] | Create Docker Compose file | `infrastructure/docker/docker-compose.yaml` |
-| b30 | [x] | Create Dockerfile for Envoy | `infrastructure/docker/Dockerfile.envoy` |
+| b29 | [x] | Create Dockerfile for Envoy | `infrastructure/docker/Dockerfile.envoy` |
 
 ### Build & Test Scripts
 

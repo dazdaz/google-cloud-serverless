@@ -180,8 +180,7 @@ cloudrun-wasm/
 │   │   ├── envoy-demo1.yaml           # Demo 1 specific config
 │   │   └── envoy-demo2.yaml           # Demo 2 specific config
 │   ├── docker/
-│   │   ├── Dockerfile.envoy           # Envoy with Wasm support
-│   │   └── docker-compose.yaml        # Local dev environment
+│   │   └── Dockerfile.envoy           # Envoy with Wasm support
 │   └── backend/
 │       ├── Dockerfile
 │       ├── app.py                     # Flask backend
