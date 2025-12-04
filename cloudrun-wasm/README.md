@@ -27,13 +27,13 @@ Both demos use **GCP Service Extensions** to run Wasm plugins inside the Load Ba
 │  ┌────────────────────────────────────────────────────────────────────┐  │
 │  │                  Service Extensions (Wasm Sandbox)                 │  │
 │  │                                                                    │  │
-│  │   REQUEST PATH:   Demo 2 - Smart Router                           │  │
-│  │                   • Inspect headers/cookies                      │  │
-│  │                   • Route to v1 or v2 backend                    │  │
+│  │   REQUEST PATH:   Demo 2 - Smart Router                            │  │
+│  │                   • Inspect headers/cookies                        │  │
+│  │                   • Route to v1 or v2 backend                      │  │
 │  │                                                                    │  │
-│  │   RESPONSE PATH:  Demo 1 - PII Scrubbing                          │  │
-│  │                   • Scan response body                           │  │
-│  │                   • Redact credit cards, SSN, emails             │  │
+│  │   RESPONSE PATH:  Demo 1 - PII Scrubbing                           │  │
+│  │                   • Scan response body                             │  │
+│  │                   • Redact credit cards, SSN, emails               │  │
 │  └────────────────────────────────────────────────────────────────────┘  │
 │                                     │                                    │
 └─────────────────────────────────────┼────────────────────────────────────┘
@@ -42,9 +42,9 @@ Both demos use **GCP Service Extensions** to run Wasm plugins inside the Load Ba
 ┌──────────────────────────────────────────────────────────────────────────┐
 │                            Cloud Run Backend                             │
 │                                                                          │
-│   • Receives traffic from Load Balancer (after Wasm processing)         │
-│   • Returns JSON responses (may contain PII for Demo 1 testing)         │
-│   • Hosts v1 and v2 versions for A/B testing (Demo 2)                   │
+│   • Receives traffic from Load Balancer (after Wasm processing)          │
+│   • Returns JSON responses (may contain PII for Demo 1 testing)          │
+│   • Hosts v1 and v2 versions for A/B testing (Demo 2)                    │
 │                                                                          │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
